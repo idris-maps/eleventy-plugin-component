@@ -1,12 +1,17 @@
 {
   "name": "eleventy-plugin-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add js components through code blocks in markdown",
   "main": ".eleventy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "plugin",
+    "components"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

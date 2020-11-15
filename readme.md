@@ -19,7 +19,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(components)
 }
 ```
-c
+
 Create components as named `iife` in `_site/js`. In the [example setup](https://github.com/idris-maps/eleventy-plugin-component/tree/main/example), we have a counter component like [this](https://github.com/idris-maps/eleventy-plugin-component/blob/main/example/src/_components/counter/index.js)
 
 As the name implies it is a counter. It also takes a `name` property and shows a string with `Hello ${name}`.
@@ -39,11 +39,11 @@ fallback: If you enable js, you will see a counter here
 * `props` is what we pass the component, in this case a `name`
 * `fallback` is what you see if you disable javascript
 
-only `name` is required the rest is optional.
+only `name` is required, the rest is optional.
 
 ### What does this plugin do?
 
-* It replaces your code block with a `<div>` it a unique id
+* It replaces your code block with a `<div>` with a unique id
 * and a `class` if you defined it with `className`
 * adds a script tag loading your component
 * adds another script tag that removes the content (the `fallback` text) and calls your component giving it the unique id and the `props`
