@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add js components through code blocks in markdown",
   "main": ".eleventy.js",
   "scripts": {
