@@ -1,7 +1,7 @@
 {
   "name": "eleventy-plugin-components",
   "version": "1.0.0",
-  "description": "",
+  "description": "Add js components through code blocks in markdown",
   "main": ".eleventy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,5 +13,9 @@
     "@code-blocks/from-html": "^0.1.0",
     "uuid": "^8.3.1",
     "yaml": "^1.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/idris-maps/eleventy-plugin-component.git"
   }
 }
