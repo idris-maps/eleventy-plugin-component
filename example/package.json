@@ -1,0 +1,20 @@
+{
+  "name": "eleventy-js-components-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:11ty": "eleventy --input=src",
+    "build:components": "node build_components",
+    "build": "./build.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "eleventy-plugin-components": "^1.0.0",
+    "esbuild": "^0.8.7",
+    "uland": "^0.3.2"
+  }
+}
