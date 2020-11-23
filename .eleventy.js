@@ -8,6 +8,8 @@ const toCamelCase = d => d.split('-')
   .map(capitalize)
   .join('')
 
+const parseComponent = d => yaml.parse(d)
+
 const partReducer = (result, d) => {
   if (d.type !== 'code' || d.language !== 'comp') {
     return {
@@ -16,7 +18,7 @@ const partReducer = (result, d) => {
     }
   }
 
-  const data = parseComp(d.content)
+  const data = parseComponent(d.content)
 
   if (!data.name) {
     return {
@@ -36,7 +38,15 @@ const partReducer = (result, d) => {
   }
 }
 
-const parseComp = d => yaml.parse(d)
+const addScriptTags = (html, scriptTags) => {
+  const [beforeEndOfBody, ...rest] = html.split('</body>')
+  const withScripts = [
+    beforeEndOfBody,
+    ...scriptTags,
+  ].join('\n')
+
+  return [withScripts, ...rest].join('</body>')
+}
 
 const transform = content => {
   const parts = getParts(content, ['comp'])
@@ -44,11 +54,13 @@ const transform = content => {
     partReducer,
     { html: '', components: [], scripts: [] },
   )
-  return [
+  return addScriptTags(
     html,
-    ...components.map(d => `<script src="/js/${d}.js"></script>`),
-    ...scripts.map(d => `<script>${d}</script>`),
-  ].join('\n')
+    [
+      ...components.map(d => `<script src="/js/${d}.js"></script>`),
+      ...scripts.map(d => `<script>${d}</script>`),
+    ],
+  )
 }
 
 module.exports = eleventyConfig => {
